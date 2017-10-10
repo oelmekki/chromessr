@@ -69,7 +69,7 @@ Try again a few seconds later, and the full content will be injected into your p
 For this to work, you need:
 
 1. to make sure the page at the url you provided contains a `#root` element (this is what will be retrieved)
-2. to make sure that the placeholder you provide contains the exact string `<div id="root"></div>` (default for react-create-app template)
+2. to make sure that the placeholder you provide contains the exact string `<div id="root"></div>` (default for create-react-app template)
 
 
 ## Using as a library
