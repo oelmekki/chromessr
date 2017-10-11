@@ -28,7 +28,7 @@ func processQueue() {
 				page := queue[0]
 				queue = queue[1:len(queue)]
 				currentlyProcessing = append(currentlyProcessing, page)
-				content, _ := Capture(page.Url)
+				content, capturingErr := Capture(page.Url)
 
 				pages := make([]Page, 0)
 				for _, processingPage := range currentlyProcessing {
@@ -38,7 +38,10 @@ func processQueue() {
 				}
 
 				currentlyProcessing = pages
-				page.Save(content)
+
+				if capturingErr == nil {
+					page.Save(content)
+				}
 			}
 		}
 	}

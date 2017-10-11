@@ -35,5 +35,9 @@ func Capture(url string) (content string, err error) {
 
 	content = res.(string)
 
+	if len(content) == 0 {
+		return content, fmt.Errorf("Could not find any content")
+	}
+
 	return
 }
