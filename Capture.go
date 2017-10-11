@@ -18,6 +18,8 @@ func Capture(url string) (content string, err error) {
 		return
 	}
 
+	defer remote.CloseTab(tabs[0])
+
 	time.Sleep(5 * time.Second)
 	res, err := remote.EvaluateWrap(`
 			let root = document.querySelector("#root");
@@ -32,7 +34,6 @@ func Capture(url string) (content string, err error) {
 	}
 
 	content = res.(string)
-	remote.CloseTab(tabs[0])
 
 	return
 }
